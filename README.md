@@ -34,7 +34,7 @@ mvn clean package
 
 The plugin can be installed by:
 ```
-bin/plugin -install analysis-file-watcher-synonym  -url https://github.com/gedrap/elasticsearch-analysis-file-watcher-synonym/releases/v0.90.4-0.1.0/elasticsearch-file-watcher-synonym-0.90.4-0.1.0.zip
+bin/plugin -install analysis-file-watcher-synonym  -url https://github.com/GedRap/elasticsearch-analysis-file-watcher-synonym/blob/master/releases/v0.90.4-0.1.0/elasticsearch-file-watcher-synonym-0.90.4-0.1.0.zip?raw=true
 ```
 
 ### Compatibility
