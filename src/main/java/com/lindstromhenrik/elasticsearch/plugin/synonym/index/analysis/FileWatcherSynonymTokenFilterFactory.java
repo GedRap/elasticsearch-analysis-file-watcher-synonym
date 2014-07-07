@@ -62,7 +62,6 @@ public class FileWatcherSynonymTokenFilterFactory extends AbstractTokenFilterFac
     public FileWatcherSynonymTokenFilterFactory(Index index, @IndexSettings Settings indexSettings, Environment env, IndicesAnalysisService indicesAnalysisService, Map<String, TokenizerFactoryFactory> tokenizerFactories,
                                                 @Assisted String name, @Assisted Settings settings, ThreadPool threadPool, IndicesService indicesService) {
         super(index, indexSettings, name, settings);
-
         Reader rulesReader = null;
         if (settings.get("synonyms_path") != null) {
             String filePath = settings.get("synonyms_path", null);
@@ -111,10 +110,10 @@ public class FileWatcherSynonymTokenFilterFactory extends AbstractTokenFilterFac
 
             if ("wordnet".equalsIgnoreCase(settings.get("format"))) {
                 parser = new WordnetSynonymParser(true, expand, analyzer);
-                ((WordnetSynonymParser) parser).parse(rulesReader);
+                ((WordnetSynonymParser) parser).add(rulesReader);
             } else {
                 parser = new SolrSynonymParser(true, expand, analyzer);
-                ((SolrSynonymParser) parser).parse(rulesReader);
+                ((SolrSynonymParser) parser).add(rulesReader);
             }
 
             synonymMap = parser.build();
@@ -152,10 +151,10 @@ public class FileWatcherSynonymTokenFilterFactory extends AbstractTokenFilterFac
 
                     if ("wordnet".equalsIgnoreCase(format)) {
                         parser = new WordnetSynonymParser(true, expand, analyzer);
-                        ((WordnetSynonymParser) parser).parse(rulesReader);
+                        ((WordnetSynonymParser) parser).add(rulesReader);
                     } else {
                         parser = new SolrSynonymParser(true, expand, analyzer);
-                        ((SolrSynonymParser) parser).parse(rulesReader);
+                        ((SolrSynonymParser) parser).add(rulesReader);
                     }
 
                     synonymMap = parser.build();

@@ -27,18 +27,16 @@ Example:
 
 ## Installation
 
-Using the plugin command (inside your elasticsearch/bin directory) the plugin can be installed by:
+To build the plugin, run 
+```
+mvn clean package
+```
+
+The plugin can be installed by:
 ```
 bin/plugin -install analysis-file-watcher-synonym  -url https://github.com/lindstromhenrik/elasticsearch-analysis-file-watcher-synonym/releases/download/v0.90.9-0.1.0/elasticsearch-file-watcher-synonym-0.90.9-0.1.0.zip
 ```
 
 ### Compatibility
 
-
-**Note**: Please make sure the plugin version matches with your elasticsearch version. Follow this compatibility matrix
-
-    ------------------------------------------------------
-    | analysis file watcher synonym   | Elasticsearch    |
-    ------------------------------------------------------
-    | 0.90.9-0.1.0                    | 0.90.9 -> master |
-    ------------------------------------------------------
+This version is tested and built for elasticsearch 0.90.4 only.
